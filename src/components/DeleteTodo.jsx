@@ -1,9 +1,12 @@
 import React, { useState } from 'react'
+import { database } from '../firebaseConfig';
+import { deleteDoc, doc } from 'firebase/firestore';
 
 const DeleteTodo = () => {
    const [id,setId] = useState(0);
   
   const handleDeleteTodo = () => {
+   
   }
 
   return (

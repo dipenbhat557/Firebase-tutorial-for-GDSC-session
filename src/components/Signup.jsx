@@ -1,4 +1,6 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import { auth } from '../firebaseConfig';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
 
 const Signup = () => {
   const [data, setData] = useState([]);
@@ -9,6 +11,9 @@ const Signup = () => {
   }
   
   const handleSignUp = () => {
+    createUserWithEmailAndPassword(auth,data.email, data.password)
+    .then((res)=>console.log(res.user))
+    .catch((err)=> console.log(err));
   }
 
   return (

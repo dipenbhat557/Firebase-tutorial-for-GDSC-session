@@ -1,4 +1,6 @@
+import { signInWithEmailAndPassword } from 'firebase/auth';
 import React, { useState } from 'react'
+import { auth } from '../firebaseConfig';
 
 const Signin = () => {
   const [data, setData] = useState([]);
@@ -9,6 +11,9 @@ const Signin = () => {
   }
   
   const handleSignIn = () => {
+    signInWithEmailAndPassword(auth,data.email,data.password)
+    .then((res)=>console.log(res.user))
+    .catch((err)=> console.log(err))
   }
 
   return (

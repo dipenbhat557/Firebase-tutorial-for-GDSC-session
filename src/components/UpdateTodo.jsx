@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import { database } from '../firebaseConfig';
+import { doc, updateDoc } from 'firebase/firestore';
 
 const UpdateTodo = () => {
    const [data, setData] = useState([]);

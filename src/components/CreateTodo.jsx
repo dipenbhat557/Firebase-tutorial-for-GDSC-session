@@ -1,7 +1,10 @@
+import { addDoc, collection } from 'firebase/firestore';
 import React, { useState } from 'react'
+import { database } from '../firebaseConfig';
 
 const CreateTodo = () => {
   const [data, setData] = useState([]);
+  const collectionRef = collection(database,"todo");
 
   const handleChange = (event) => {
     const changedInput = {[event.target.name]: event.target.value};
@@ -9,6 +12,9 @@ const CreateTodo = () => {
   }
   
   const handleCreateTodo = () => {
+    addDoc(collectionRef,{title:data.title,description:data.description})
+    .then(()=>alert("Data added"))
+    .catch((err)=>alert("Error occurred ",err))
   }
 
   return (
